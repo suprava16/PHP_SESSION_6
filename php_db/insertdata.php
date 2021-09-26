@@ -1,5 +1,7 @@
 <?php
 if(isset($_POST['register'])){
+  include "dbconfig.php";
+
   $empname=$_POST['empname'];
   $email=$_POST['email'];
   $phone=$_POST['phone'];
@@ -7,11 +9,7 @@ if(isset($_POST['register'])){
   $salary=$_POST['salary'];
   $password=$_POST['password'];
 
-  //database connection
-  $con=new mysqli("localhost","root","","employee");
-  if($con->connect_error){
-    die("something wrong in database connection...try again!!!!!!!!!");
-  }
+  
 
   //insert data into table
   $sql="insert into empdata values(0,'$empname','$email','$phone','$designation',$salary,'$password')";
